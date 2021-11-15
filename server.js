@@ -312,6 +312,7 @@ addEmployee = () => {
     });
   };
   
+
 updateEmployee = () => {
     const employeeSql = `SELECT * FROM employee`;
   
@@ -427,5 +428,3 @@ updateEmployee = () => {
       });
     });
   };
-  
- 
