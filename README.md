@@ -15,6 +15,7 @@
   You will need to run the schema in MySQLWorkbench as well as the seeds. Then use npm start to initiate the app.
   ## Usage 
   You can use the features of this app in the command line by selecting which function you want to do with the arrow keys and editing what you desire.
+  https://watch.screencastify.com/v/wIGjQT3YNhVxwkuZQH6a
   ## License 
   This project is license under MIT
   ## Contributing 
