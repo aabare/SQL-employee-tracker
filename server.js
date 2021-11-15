@@ -1,9 +1,11 @@
+//Imports
 const mysql = require('mysql2')
 const inquirer = require('inquirer');
 const cTable = require('console_table');
 
 require('dotenv').config()
 
+//Connection to database
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -17,6 +19,7 @@ connection.connect(err => {
     afterConnection();
 });
 
+//Function that shows after connection is made
 afterConnection = () => {
     console.log("=============================")
     console.log("=                           =")
@@ -26,6 +29,7 @@ afterConnection = () => {
     promptUser();
 };
 
+//Inquirer prompt
 const promptUser = () => {
     inquirer.prompt ([
         {
@@ -96,6 +100,7 @@ const promptUser = () => {
     });
 };
 
+//Shows all departments
 showDepartments = () => {
     console.log('Showing all departments...');
     const sql = `SELECT department.id AS id, department.name AS department FROM department`;
@@ -107,6 +112,7 @@ showDepartments = () => {
     });
 };
 
+//Shows all roles
 showRoles = () => {
     console.log('Showing all roles...');
 
@@ -121,6 +127,7 @@ showRoles = () => {
     });
 };
 
+//Shows all employees
 showEmployees = () => {
     console.log('Showing all employess...');
     const sql = `SELECT employee.id,
@@ -142,6 +149,7 @@ showEmployees = () => {
     });
 };
 
+//Adds a department
 addDepartment = () => {
     inquirer.prompt([
         {
@@ -170,6 +178,7 @@ addDepartment = () => {
     });
 };
 
+//Adds a role
 addRole = () => {
     inquirer.prompt([
         {
@@ -222,6 +231,7 @@ addRole = () => {
     });
 };
 
+//Adds an employee
 addEmployee = () => {
     inquirer.prompt([
       {
@@ -308,7 +318,7 @@ addEmployee = () => {
     });
   };
   
-
+//Updates employee role
 updateEmployee = () => {
     const employeeSql = `SELECT * FROM employee`;
   
@@ -367,6 +377,7 @@ updateEmployee = () => {
     });
   };
   
+  //Updates employee manager
   updateManager = () => {
     const employeeSql = `SELECT * FROM employee`;
   
@@ -425,6 +436,7 @@ updateEmployee = () => {
     });
   };
 
+//Shows employee by department
 employeeDepartment = () => {
     console.log('Showing employee by departments...');
     const sql = `SELECT employee.first_name, 
@@ -440,7 +452,8 @@ employeeDepartment = () => {
       promptUser();
     });          
   };
-  
+
+//Removes a role
 deleteRole = () => {
     const roleSql = `SELECT * FROM role`; 
   
@@ -471,6 +484,7 @@ deleteRole = () => {
     });
   };
 
+//Removes an employee
 deleteEmployee = () => {
     const employeeSql = `SELECT * FROM employee`;
   
